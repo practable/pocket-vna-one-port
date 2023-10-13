@@ -22,11 +22,13 @@
         <img class='pvna-img' id='pvna-image' src='/images/DUT-disconnected.png' alt='pocket-vna'>
 
         <div v-if='getSParams.length > 1' class='dropbox mb-2' id='port2' @drop='dropPort2' @dragstart='removePort2'>
-            <img v-if='port2 != ""' class='dropbox-image' :id='port2.type' :src='require(`/images/${port2.img}.png`)' :alt='port2.type'>
+            <!-- <img v-if='port2 != ""' class='dropbox-image' :id='port2.type' :src='require(`/images/${port2.img}.png`)' :alt='port2.type'> -->
+            <img v-if='port2 != ""' class='dropbox-image' :id='port2.type' :src='"/images/" + port2.img + ".png"' :alt='port2.type'>
         </div>
 
         <div class='dropbox' id='port1' @drop='dropPort1' @dragstart='removePort1'>
-            <img v-if='port1 != ""' class='dropbox-image' :id='port1.type' :src='require(`/images/${port1.img}.png`)' :alt='port1.type'>
+            <!-- <img v-if='port1 != ""' class='dropbox-image' :id='port1.type' :src='require(`/images/${port1.img}.png`)' :alt='port1.type'> -->
+            <img v-if='port1 != ""' class='dropbox-image' :id='port1.type' :src='"/images/" + port1.img + ".png"' :alt='port1.type'>
         </div>
       </div>
 

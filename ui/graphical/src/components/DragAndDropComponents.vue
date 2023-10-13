@@ -5,8 +5,10 @@
   <div class='d-flex flex-row justify-content-center'>
       <div v-for='image in display' :key='image.type' class='col-md-3'>
           <div class='dragbox' @dragstart="dragImage(image)" @dragover.prevent @dragenter.prevent @touchstart="dragImage(image); dropPort1()">
-              <img class='dragbox-image' :id='image.type' :src='require(`/images/${image.img}.png`)' :alt='image.type' :hidden='port1 == image || port2 == image'>
-          </div>
+              <!-- <img class='dragbox-image' :id='image.type' :src='require(`/images/${image.img}.png`)' :alt='image.type' :hidden='port1 == image || port2 == image'> -->
+              <img class='dragbox-image' :id='image.type' :src='"/images/" + image.img + ".png"' :alt='image.type' :hidden='port1 == image || port2 == image'>
+          
+            </div>
           <figcaption class='txt-primary fig'>{{ image.type }}</figcaption>
       </div>
       

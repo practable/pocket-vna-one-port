@@ -1,2 +1,2 @@
 #!/bin/sh
-websocat ws://localhost:8888/ws/data tcp-listen:127.0.0.1:9999 --text
+websocat ws://localhost:8888/ws/rfswitch tcp-listen:127.0.0.1:9999 --text

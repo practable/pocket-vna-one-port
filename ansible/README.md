@@ -53,4 +53,9 @@ https://relay-access.practable.io/session/pvna00-data
 ```
 
 
+install websocat using wget from a convenient location, and sudo apt-get install libssl1.1 for the shared lib it needs
+sudo apt-get install socat
+set up the websocat-rfswitch and socat-rfswith services
+
+
 

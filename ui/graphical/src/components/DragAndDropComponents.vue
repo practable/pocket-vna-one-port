@@ -6,7 +6,7 @@
       <div v-for='image in display' :key='image.type' class='col-md-3'>
           <div class='dragbox' @dragstart="dragImage(image)" @dragover.prevent @dragenter.prevent @touchstart="dragImage(image); dropPort1()">
               <!-- <img class='dragbox-image' :id='image.type' :src='require(`/images/${image.img}.png`)' :alt='image.type' :hidden='port1 == image || port2 == image'> -->
-              <img class='dragbox-image' :id='image.type' :src='"/images/" + image.img + ".png"' :alt='image.type' :hidden='port1 == image || port2 == image'>
+              <img class='dragbox-image' :id='image.type' :src='"/ed0/static/ui/pvna-oneport-graphical-1.0/images/" + image.img + ".png"' :alt='image.type' :hidden='port1 == image || port2 == image'>
           
             </div>
           <figcaption class='txt-primary fig'>{{ image.type }}</figcaption>
@@ -19,25 +19,25 @@
   <div class='row'>
 
       <div v-if="port1 == ''" class='col-sm-12 pvna' @dragstart="removePort1" @dragover.prevent @dragenter.prevent @touchstart="removePort1">
-        <img class='pvna-img' id='pvna-image' src='/images/DUT-disconnected.png' alt='pocket-vna'>
+        <img class='pvna-img' id='pvna-image' src='../assets/DUT-disconnected.png' alt='pocket-vna'>
 
         <div v-if='getSParams.length > 1' class='dropbox mb-2' id='port2' @drop='dropPort2' @dragstart='removePort2'>
             <!-- <img v-if='port2 != ""' class='dropbox-image' :id='port2.type' :src='require(`/images/${port2.img}.png`)' :alt='port2.type'> -->
-            <img v-if='port2 != ""' class='dropbox-image' :id='port2.type' :src='"/images/" + port2.img + ".png"' :alt='port2.type'>
+            <img v-if='port2 != ""' class='dropbox-image' :id='port2.type' :src='"/ed0/static/ui/pvna-oneport-graphical-1.0/images/" + port2.img + ".png"' :alt='port2.type'>
         </div>
 
         <div class='dropbox' id='port1' @drop='dropPort1' @dragstart='removePort1'>
             <!-- <img v-if='port1 != ""' class='dropbox-image' :id='port1.type' :src='require(`/images/${port1.img}.png`)' :alt='port1.type'> -->
-            <img v-if='port1 != ""' class='dropbox-image' :id='port1.type' :src='"/images/" + port1.img + ".png"' :alt='port1.type'>
+            <img v-if='port1 != ""' class='dropbox-image' :id='port1.type' :src='"/ed0/static/ui/pvna-oneport-graphical-1.0/images/" + port1.img + ".png"' :alt='port1.type'>
         </div>
       </div>
 
       <div v-else-if="port1.type == 'dut'" class='col-sm-12 pvna' @mousedown='removePort1' @touchstart="removePort1">
-        <img class='pvna-img' id='pvna-connected-dut-image' src='/images/PVNA-connected-state-dut.png' alt='pocket-vna-connected'>
+        <img class='pvna-img' id='pvna-connected-dut-image' src='../assets/PVNA-connected-state-dut.png' alt='pocket-vna-connected'>
       </div>
 
       <div v-else class='col-sm-12 pvna' @mousedown='removePort1' @touchstart="removePort1">
-        <img class='pvna-img' id='pvna-connected-cal-image' src='/images/PVNA-connected-state-cal.png' alt='pocket-vna-connected'>
+        <img class='pvna-img' id='pvna-connected-cal-image' src='../assets/PVNA-connected-state-cal.png' alt='pocket-vna-connected'>
       </div>
 
       <!-- <div v-if="port1 == ''" class='col-sm-6 mt-1 pt-2'>

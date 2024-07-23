@@ -3,7 +3,7 @@
 <div class='container-sm m-2 background-white border rounded'>
 
     <div v-if='getSessionExpired' class='col-12'>
-        <img id='session-end-image' src='https://assets.practable.io/images/common/thank-you-screen.svg' alt='session ended'>
+        <img id='session-end-image' src='https://app.practable.io/ed0/static/images/common/thank-you-screen.svg' alt='session ended'>
     </div>
     <div v-else class='row mb-4' id='overlay'>
       <div v-if='getConfigJSON != ""' class='col-6'>

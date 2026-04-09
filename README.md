@@ -1,17 +1,19 @@
 # go-pocketvna
 
-A golang-based web service for the pocketvna.com](https://pocketvna.com/) vector network analyser, with an automated one-port calibration facility provided by additional RF hardware, for use with the open-source [practable.io](https://practable.io] remote lab ecosystem. The user interface is similar to [this](https://github.com/dpreid/pidui), although not yet publically released by the developer (coming soon!)
+This repo contains the hardware and software designs for a remote laboratory experiment comprising a one-port vector network analyser (VNA), with calibration standards included so that users can calibrate at any time. This is important because the VNA calibration can drift sufficiently quickly that we recommended recalibration at the start of each student session (e.g. half-hourly or hourly). The remote laboratory infrastructure is the open-source [practable.io](https://practable.io) system, which is introduced in [this video](https://www.youtube.com/watch?v=Zillx2xlHhc). 
 
 ## Overview
 
 This repo contains code and design files for the key parts of the system.
 
-- golang wrapper for the pocket-vna
-- golang middleware and clients for the rf-switch and calibration services 
-- python calibration service using scikit-rf & websocket libraries
-- docker containerisation of the python calibration service
-- C/C++ firmware for an arduino nano microcontroller
-- PCB for a logic level shifterthat can control a 4-port RF switch mounted on an evaluation board
+- ```./ansible``` contains the files and scripts for setting up the single board computer that hosts the experiment
+- ```./arduino``` contains the firmware for the RF switch system that connects the calibration standards and device under test to the VNA
+- ```./cmd``` & ```./pkg``` contains the code for the executable that runs on the single board computer, controlling the VNA via the manufacturer-supplied interface in ```./lib```, described in ```./doc```
+- ```./hardware``` contains the printed circuit board design for the RF switch
+- ```./py``` contains the python-based calibration service that runs on the single board computer, using ```scikit-rf``` for the calibration routines themselves.
+- ```./ui``` containes the vue.js user interface code that is hosted on the main practable experiment server
+
+### Golang components
 
 The largest part of this repo is the golang executable `vna` which sequences tasks between the four major parts: 
 - user (via websocket service, routed through session host from the external practable.io ecosystem)
